@@ -82,8 +82,8 @@ export default defineConfig({
 
         runtimeCaching: [
           {
-            urlPattern: ({ request }) =>
-              request.destination === 'document',
+            urlPattern: ({ request }: { request: Request }) =>
+            request.destination === 'document',
             handler: 'NetworkFirst',
             options: {
               cacheName: 'pages-cache',
