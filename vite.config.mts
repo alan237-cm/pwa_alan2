@@ -81,41 +81,41 @@ export default defineConfig({
         globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2}'],
 
         runtimeCaching: [
-          {
-            urlPattern: ({ request }: { request: Request }) =>
-            request.destination === 'document',
-            handler: 'NetworkFirst',
-            options: {
-              cacheName: 'pages-cache',
-            },
-          },
-          {
-            urlPattern: ({ request }) =>
-              request.destination === 'script' ||
-              request.destination === 'style' ||
-              request.destination === 'worker',
-            handler: 'CacheFirst',
-            options: {
-              cacheName: 'assets-cache',
-            },
-          },
-          {
-            urlPattern: ({ request }) =>
-              request.destination === 'image',
-            handler: 'CacheFirst',
-            options: {
-              cacheName: 'images-cache',
-            },
-          },
-          {
-            urlPattern: ({ request }) =>
-              request.destination === 'font',
-            handler: 'CacheFirst',
-            options: {
-              cacheName: 'fonts-cache',
-            },
-          },
-        ],
+  {
+    urlPattern: ({ request }: { request: Request }) =>
+      request.destination === 'document',
+    handler: 'NetworkFirst',
+    options: {
+      cacheName: 'pages-cache',
+    },
+  },
+  {
+    urlPattern: ({ request }: { request: Request }) =>
+      request.destination === 'script' ||
+      request.destination === 'style' ||
+      request.destination === 'worker',
+    handler: 'CacheFirst',
+    options: {
+      cacheName: 'assets-cache',
+    },
+  },
+  {
+    urlPattern: ({ request }: { request: Request }) =>
+      request.destination === 'image',
+    handler: 'CacheFirst',
+    options: {
+      cacheName: 'images-cache',
+    },
+  },
+  {
+    urlPattern: ({ request }: { request: Request }) =>
+      request.destination === 'font',
+    handler: 'CacheFirst',
+    options: {
+      cacheName: 'fonts-cache',
+    },
+  },
+],
       },
     }),
   ],
